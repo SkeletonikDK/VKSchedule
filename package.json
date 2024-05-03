@@ -1,0 +1,22 @@
+{
+  "name": "vkschedule",
+  "version": "1.0.0",
+  "description": "Даров",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkeletonikDK/VKSchedule.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SkeletonikDK/VKSchedule/issues"
+  },
+  "homepage": "https://github.com/SkeletonikDK/VKSchedule#readme",
+  "dependencies": {
+    "vk-io": "^4.9.1"
+  }
+}
