@@ -2,7 +2,7 @@
   "name": "vkschedule",
   "version": "1.0.0",
   "description": "Даров",
-  "main": "index.js",
+  "main": "src/script.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
