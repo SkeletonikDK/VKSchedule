@@ -28,39 +28,39 @@ vk.updates.start()
 
 //const nodePath = process.argv[0];
 //const appPath = process.argv[1];
-var command = process.argv[2];
+
+import { backDefault } from "./util/backdefault.js";
+import { rotate } from "./util/rotate.js";
+import { setDefault } from "./util/setDefault.js";
+
+const command = process.argv[2];
 const parameter1 = process.argv[3];
 const parameter2 = process.argv[4];
 const parameter3 = process.argv[5];
 
 console.log("VKSchedule");
-console.log("version 0.0.2 \n");
+console.log("version 0.0.3 \n");
 
-if (command == undefined) {
-    console.log("Please write a command or write help\n");
-    return;
+const COMMANDS = {
+    "backdefault": backDefault,
+    //"change": change,
+    //"help": help,
+    "rotate": rotate,
+    "setdefault": setDefault,
+    //"updatevk": updatevk
 }
 
-command = command.toLowerCase();
+if (command != undefined) {
+    for (const [key, func] of Object.entries(COMMANDS)) {
+        console.log(key);
+        if (key == command.toLowerCase()) {
+            console.log("check");
+            func();
+        }
+    }
 
-if (command == "rotate") {
-    Rotate();
-}
-else if (command == "updatevk") {
-    //UpdateVK();
-}
-else if (command == "change") {
-    //Change(parameter1, parameter2, parameter3);
-}
-else if (command == "backdefault") {
-    //BackDefault();
-}
-else if (command == "setdefault") {
-    //SetDefault();
-}
-else if (command == "help") {
-    //Help();
+    console.log("Unknown command \n");
 }
 else {
-    console.log("Unknown command\n");
+    console.log("Write a command or write help");
 }
