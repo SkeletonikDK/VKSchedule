@@ -5,7 +5,7 @@ import { rotate } from "./util/rotate.js";
 import { setDefault } from "./util/setDefault.js";
 import { updateVk } from "./util/updateVk.js";
 
-const command = process.argv[2];
+const command = process.argv[2].toLowerCase();
 const parameter1 = process.argv[3];
 const parameter2 = process.argv[4];
 const parameter3 = process.argv[5];
