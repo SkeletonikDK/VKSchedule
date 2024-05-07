@@ -2,8 +2,8 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const CUR_WEEK_FILE_PATH = "../curWeek.txt";
 const WEEKS = {
-    EVEN: "0",
-    ODD: "1",
+    EVEN: "четная",
+    ODD: "нечетная",
 }
 
 export function rotate() {
