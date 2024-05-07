@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
-const CUR_WEEK_FILE_PATH = "../curWeek.txt";
+import { CUR_WEEK_FILE_PATH } from "./common.js"
+
 const WEEKS = {
     EVEN: "четная",
     ODD: "нечетная",
