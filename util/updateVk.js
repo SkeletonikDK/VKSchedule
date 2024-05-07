@@ -40,5 +40,3 @@ function prepareMessage() {
 
     return resultMessage;
 }
-
-updateVk();
