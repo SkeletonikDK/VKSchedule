@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
-const CUR_WEEK_FILE_PATH = "../cur_week.txt";
+const CUR_WEEK_FILE_PATH = "../curWeek.txt";
 const WEEKS = {
     EVEN: "0",
     ODD: "1",
@@ -13,7 +13,7 @@ export function rotate() {
     } else if (curWeek == WEEKS.ODD) {
         curWeek = WEEKS.EVEN;
     } else {
-        throw new Error("cur_week.txt content is invalid");
+        throw new Error("curWeek.txt content is invalid");
     }
 
     writeFileSync(CUR_WEEK_FILE_PATH, curWeek);
