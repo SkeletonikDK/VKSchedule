@@ -39,7 +39,7 @@ const parameter2 = process.argv[4];
 const parameter3 = process.argv[5];
 
 console.log("VKSchedule");
-console.log("version 0.0.3 \n");
+console.log("version 0.0.4 \n");
 
 const COMMANDS = {
     "backdefault": backDefault,
@@ -50,17 +50,15 @@ const COMMANDS = {
     //"updatevk": updatevk
 }
 
-if (command != undefined) {
-    for (const [key, func] of Object.entries(COMMANDS)) {
-        console.log(key);
-        if (key == command.toLowerCase()) {
-            console.log("check");
-            func();
-        }
+try {
+    console.log(command);
+    COMMANDS[command]();
+} 
+catch (error) {
+    if (command != undefined) {
+        console.log("Unknown command \n");
     }
-
-    console.log("Unknown command \n");
-}
-else {
-    console.log("Write a command or write help");
+    else {
+        console.log("Write a command or write help \n");
+    }
 }
