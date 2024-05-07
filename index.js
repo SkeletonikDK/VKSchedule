@@ -3,7 +3,7 @@ import { change } from "./util/change.js";
 import { help } from "./util/help.js";
 import { rotate } from "./util/rotate.js";
 import { setDefault } from "./util/setDefault.js";
-//import { updateVk } from "./util/updateVk.js";
+import { updateVk } from "./util/updateVk.js";
 
 const command = process.argv[2];
 const parameter1 = process.argv[3];
@@ -16,7 +16,7 @@ const COMMANDS = {
     "help": help,
     "rotate": rotate,
     "setdefault": setDefault,
-    //"updatevk": updatevk
+    "updatevk": updateVk
 }
 
 try {
