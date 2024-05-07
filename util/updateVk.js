@@ -1,16 +1,44 @@
-import { API, APIRequest  } from "vk-io";
+import { readFileSync } from "node:fs";
+import { VK } from "vk-io";
 
-const api = new API({
-    token: "vk1.a.kGRM6_bH4HGnQPbK0jL6txVipppRadTcORDzR8idkgTkN71am01Lp5nNDumHhQ_KU4vllYnQ3DHMuDhfGZd-JdCH1brO2x7luvkXuqS5wyaf9DYiJGg6kFQwiSPoE9ruKaHObpsgzSFsjexV8XKDXUXpNR7QuMG6T4AsUhQeeR_fQZ9Vx3jn727iFqIhqb0KfZyD4yapZRyTR2VYLC2w5Q"
+import { CONFIG_FILE_PATH, WEEKS_FILE_PATH, CUR_WEEK_FILE_PATH } from "./common.js";
+
+const DAYS_NAMES = {
+    0: "Понедельник",
+    1: "Вторник",
+    2: "Среда",
+    3: "Четверг",
+    4: "Пятница",
+}
+
+const CONFIG = JSON.parse(readFileSync(CONFIG_FILE_PATH));
+const vk = new VK({
+    token: CONFIG.accessToken,
 });
 
-const request = new APIRequest({
-    api,
+export async function updateVk() {
+    await vk.api.messages.edit({
+        peer_id: CONFIG.chatId,
+        conversation_message_id: CONFIG.messageId,
+        message: prepareMessage(),
+    });
+}
 
-    method: 'messages.edit',
-    params: {
-        peer_id: 1
+function prepareMessage() {
+    let data = JSON.parse(readFileSync(WEEKS_FILE_PATH));
+    let curWeek = readFileSync(CUR_WEEK_FILE_PATH);
+
+    let resultMessage = "";
+    let class_;
+    for (let i in data[curWeek]) {
+        resultMessage += "\n" + DAYS_NAMES[i] + ":\n";
+        for (let k in data[curWeek][i]) {
+            class_ = data[curWeek][i][k];
+            resultMessage += (Number(k) + 1) + ". " + class_ + "\n";
+        }
     }
-});
 
-const response = await api.make();
+    return resultMessage;
+}
+
+updateVk();
