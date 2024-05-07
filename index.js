@@ -30,8 +30,11 @@ vk.updates.start()
 //const appPath = process.argv[1];
 
 import { backDefault } from "./util/backdefault.js";
+//import { change } from "./util/change.js";
+import { help } from "./util/help.js";
 import { rotate } from "./util/rotate.js";
 import { setDefault } from "./util/setDefault.js";
+//import { updateVk } from "./util/updateVk.js";
 
 const command = process.argv[2];
 const parameter1 = process.argv[3];
@@ -44,14 +47,13 @@ console.log("version 0.0.4 \n");
 const COMMANDS = {
     "backdefault": backDefault,
     //"change": change,
-    //"help": help,
+    "help": help,
     "rotate": rotate,
     "setdefault": setDefault,
     //"updatevk": updatevk
 }
 
 try {
-    console.log(command);
     COMMANDS[command]();
 } 
 catch (error) {
