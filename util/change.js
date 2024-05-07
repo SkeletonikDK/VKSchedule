@@ -9,4 +9,6 @@ export function change(numOfDay, numOfClass, newText) {
     weeks[curWeek][numOfDay - 1][numOfClass - 1] = newText;
 
     writeFileSync(WEEKS_FILE_PATH, JSON.stringify(weeks, null, 4));
+
+    console.log(`Расписание изменено!`);
 }
