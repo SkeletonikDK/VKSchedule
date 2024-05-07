@@ -1,34 +1,3 @@
-/* 
-
-const config = require("./config.json"),
-    { VK } = require('vk-io'),
-    { HearManager } = require('@vk-io/hear');
-
-const vk = new VK({
-    token: config.token
-});
-
-const command = new HearManager();
-vk.updates.on('message', command.middleware);
-
-vk.updates.on('message', async (context, next) => {
-    console.log('Пришло новое сообщение!');
-    await next();
-});
-
-command.hear('/start', async (context) => {
-    context.send('Это наша первая программа и она работает 🎉');
-})
-
-vk.updates.start()
-    .then(() => console.log('Бот запущен!'))
-    .catch(console.error); 
-
-*/
-
-//const nodePath = process.argv[0];
-//const appPath = process.argv[1];
-
 import { backDefault } from "./util/backdefault.js";
 import { change } from "./util/change.js";
 import { help } from "./util/help.js";
@@ -41,10 +10,6 @@ const parameter1 = process.argv[3];
 const parameter2 = process.argv[4];
 const parameter3 = process.argv[5];
 
-console.log("VKSchedule");
-console.log("version 0.0.5 \n");
-console.log("Напишите help для помощи \n");
-
 const COMMANDS = {
     "backdefault": backDefault,
     "change": change,
@@ -55,9 +20,17 @@ const COMMANDS = {
 }
 
 try {
-    COMMANDS[command]();
+    if (command != change) {
+        COMMANDS[command](parameter1, parameter2, parameter3);
+    }
+    else {
+        COMMANDS[command]();
+    }
 } 
 catch (error) {
+    console.log("VKSchedule");
+    console.log("version 0.0.5 \n");
+    
     if (command != undefined) {
         console.log("Unknown command \n");
     }

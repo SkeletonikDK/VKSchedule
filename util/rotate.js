@@ -18,5 +18,5 @@ export function rotate() {
     }
 
     writeFileSync(CUR_WEEK_FILE_PATH, curWeek);
-    console.log(`Установлена ${curWeek} неделя!`);
+    console.log(`Установлена ${curWeek} неделя! \n`);
 }

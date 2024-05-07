@@ -4,5 +4,5 @@ export function help() {
     console.log("Help - Помощь :/ ");
     console.log("Rotate - Перевернуть неделю с четной на нечетную и наоборот.");
     console.log("UpdateVK - Разместить расписание в ВК.");
-    console.log("Change - тут пизда какая то \n");
+    console.log("Change <День> <Какая пара по списку> <Имя пары> - Изменить расписание.\n");
 }
