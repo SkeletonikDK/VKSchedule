@@ -20,17 +20,12 @@ const COMMANDS = {
 }
 
 try {
-    if (command != change) {
-        COMMANDS[command](parameter1, parameter2, parameter3);
-    }
-    else {
-        COMMANDS[command]();
-    }
+    COMMANDS[command](parameter1, parameter2, parameter3);
 } 
 catch (error) {
     console.log("VKSchedule");
     console.log("version 0.0.5 \n");
-    
+
     if (command != undefined) {
         console.log("Unknown command \n");
     }
