@@ -26,90 +26,41 @@ vk.updates.start()
 
 */
 
-const readline = require('readline-sync');
+//const nodePath = process.argv[0];
+//const appPath = process.argv[1];
+var command = process.argv[2];
+const parameter1 = process.argv[3];
+const parameter2 = process.argv[4];
+const parameter3 = process.argv[5];
 
 console.log("VKSchedule");
-console.log("version 0.0.1 \n");
+console.log("version 0.0.2 \n");
 
-while (true) {
-    console.log("Write a command");
-
-    command = readline.question();
-    command = command.split(" ")
-
-    if (command[0] == "Rotate") {
-        Rotate();
-    }
-    else if (command[0] == "UpdateVK") {
-        UpdateVK();
-    }
-    else if (command[0] == "Change") {
-        Change(command[1], command[2], command[3]);
-    }
-    else if (command[0] == "BackDefault") {
-        BackDefault();
-    }
-    else if (command[0] == "SetDefault") {
-        SetDefault();
-    }
-    else {
-        console.log("Unknown command\n");
-    }
+if (command == undefined) {
+    console.log("Please write a command or write help\n");
+    return;
 }
 
-function Rotate() {
-    console.log("Rotate");
-    // Обратится к файлу конфига и посмотреть четное или нечетное расписание сейчас
+command = command.toLowerCase();
+
+if (command == "rotate") {
+    Rotate();
 }
-
-function UpdateVK() {
-    console.log("UpdateVK");
-    // Выложить расписание, тут работа с вк апи
+else if (command == "updatevk") {
+    //UpdateVK();
 }
-
-function Change(NumOfDay, NumOfClass, NewText) {
-    console.log("Change");
-
-    if (NumOfDay != undefined) {
-        if (typeof(NumOfDay) != "number") {
-            console.log("NumOfDay is not a number");
-            return
-        }
-    }
-    else {
-        console.log("NumOfDay is undefined");
-        return;
-    }
-
-    if (NumOfClass != undefined) {
-        if (typeof(NumOfClass) != "number") {
-            console.log("NumOfDay is not a number");
-            return
-        }
-    }
-    else {
-        console.log("NumOfDay is undefined");
-        return;
-    }
-
-    if (NewText != undefined) {
-        if (typeof(NewText) != "number") {
-            console.log("NumOfDay is not a number");
-            return
-        }
-    }
-    else {
-        console.log("NumOfDay is undefined");
-        return;
-    }
-
-    console.log("Successful");
+else if (command == "change") {
+    //Change(parameter1, parameter2, parameter3);
 }
-
-function BackDefault() {
-    console.log("BackDefault");
+else if (command == "backdefault") {
+    //BackDefault();
 }
-
-function SetDefault() {
-    console.log("SetDefault");
+else if (command == "setdefault") {
+    //SetDefault();
+}
+else if (command == "help") {
+    //Help();
+}
+else {
+    console.log("Unknown command\n");
 }

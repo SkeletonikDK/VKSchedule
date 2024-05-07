@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/SkeletonikDK/VKSchedule#readme",
   "dependencies": {
-    "readline-sync": "^1.4.10",
     "vk-io": "^4.9.1"
   },
   "type": "module"
