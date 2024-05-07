@@ -18,5 +18,6 @@
   "homepage": "https://github.com/SkeletonikDK/VKSchedule#readme",
   "dependencies": {
     "vk-io": "^4.9.1"
-  }
+  },
+  "type": "module"
 }
